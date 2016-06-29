@@ -1,0 +1,116 @@
+<?php
+
+namespace GitsyncBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Gitsync
+ *
+ * @ORM\Table(name="gitsync")
+ * @ORM\Entity(repositoryClass="GitsyncBundle\Repository\GitsyncRepository")
+ */
+class Gitsync
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="reponame", type="string", length=255)
+     */
+    private $reponame;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="dirclone", type="string", length=255)
+     */
+    private $dirclone;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="dirrepo", type="string", length=255)
+     */
+    private $dirrepo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="chwuclone", type="string", length=255)
+     */
+    private $chwuclone;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="chwgclone", type="string", length=255)
+     */
+    private $chwgclone;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="chwurepo", type="string", length=255)
+     */
+    private $chwurepo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="chwgrepo", type="string", length=255)
+     */
+    private $chwgrepo;
+
+    /**
+     *
+     * @ORM\Column(name="dateupdate", type="datetime", nullable=true)
+     */
+    private $dateupdate;
+
+
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set reponame
+     *
+     * @param string $reponame
+     *
+     * @return Gitsync
+     */
+    public function setReponame($reponame)
+    {
+        $this->reponame = $reponame;
+
+        return $this;
+    }
+
+    /**
+     * Get reponame
+     *
+     * @return string
+     */
+    public function getReponame()
+    {
+        return $this->reponame;
+    }
+}
+

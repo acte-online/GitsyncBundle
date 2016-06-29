@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Gitsync Configuration</title>
+
+	<link rel="stylesheet" href="{{ asset('bundles/gitsync/css/gitsync.css') }}">
+</head>
+<body>
+
+	<section class="glb">
+		<div class="title-page"><h1>Git Configuration</h1></div>
+
+		<br>
+
+		<div>
+			<form method="POST">
+				<div><h2>Paramètre du clone</h2></div>
+				<div>
+					<label>Nom du repo ( repo.git )</label>
+					<input type="text" name="reponame" placeholder="Nom du repo..." value="" />
+				</div>
+				<div>
+					<label>Chemin du clone</label>
+					<input type="text" name="dirclone" placeholder="Chemin du clone.." />
+				</div>
+				<div>
+					<label>User du clone</label>
+					<input type="text" name="chwuclone" placeholder="Nom user.." />
+				</div>
+				<div>
+					<label>Groupe du clone</label>
+					<input type="text" name="chwgclone" placeholder="Nom groupe.." />
+				</div>
+
+				<br>
+
+				<div><h2>Paramètre du dépot</h2></div>
+				<div>
+					<label>Chemin du clone</label>
+					<input type="text" name="dirrepo" placeholder="Chemin du depot.." />
+				</div>
+				<div>
+					<label>User du clone</label>
+					<input type="text" name="chwurepo" placeholder="Nom user.." />
+				</div>
+				<div>
+					<label>Groupe du clone</label>
+					<input type="text" name="chwgrepo" placeholder="Nom groupe.." />
+				</div>
+
+				<br>
+				
+				<div>
+					<button type="submit" name="submit" >Enregistrer</button>
+				</div>
+
+			</form>
+		</div>
+	</section>
+
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<script src="{{ asset('bundles/gitsync/js/jquery.gitsync.js') }}"></script>
+</body>
+</html>

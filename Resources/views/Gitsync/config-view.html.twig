@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<link rel="stylesheet" href="{{ asset('bundles/gitsync/css/gitsync.css') }}">
+</head>
+<body>
+{% for CG in CGitsync %}
+	<section class="glb">
+		<div class="title-page"><h1>Git Configuration</h1></div>
+
+		<br>
+
+		<div>
+			<form action="{{ path('gitsyncconfigedit', {'id':CG.id})}}" method="POST">
+				<div><h2>Paramètre du clone</h2></div>
+				<div>
+					<label>Nom du repo ( repo.git )</label>
+					<input type="text" name="reponame" placeholder="Nom du repo..." value="{{ CG.reponame }}" />
+				</div>
+				<div>
+					<label>Chemin du clone</label>
+					<input type="text" name="dirclone" placeholder="Chemin du clone.." value="{{ CG.dirclone }}" />
+				</div>
+				<div>
+					<label>User du clone</label>
+					<input type="text" name="chwuclone" placeholder="Nom user.." value="{{ CG.chwuclone }}" />
+				</div>
+				<div>
+					<label>Groupe du clone</label>
+					<input type="text" name="chwgclone" placeholder="Nom groupe.." value="{{ CG.chwgclone }}" />
+				</div>
+
+				<br>
+
+				<div><h2>Paramètre du dépot</h2></div>
+				<div>
+					<label>Chemin du clone</label>
+					<input type="text" name="dirrepo" placeholder="Chemin du depot.." value="{{ CG.dirrepo }}" />
+				</div>
+				<div>
+					<label>User du clone</label>
+					<input type="text" name="chwurepo" placeholder="Nom user.." value="{{ CG.chwurepo }}" />
+				</div>
+				<div>
+					<label>Groupe du clone</label>
+					<input type="text" name="chwgrepo" placeholder="Nom groupe.." value="{{ CG.chwgrepo }}" />
+				</div>
+
+				<br>
+				
+				<div>
+					<button type="submit" name="submit" >Modifier</button>
+				</div>
+
+			</form>
+		</div>
+	</section>
+{% endfor %}
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<script src="{{ asset('bundles/gitsync/js/jquery.gitsync.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+body{
+	font-size: 14px;
+	font-weight: 300;
+}
+
+section.glb {
+	margin: 30px;
+}
+
+.title-page {
+	font-size: 28px;
+	font-weight: bold;
+}
+
+label{
+	clear: both;
+	display: block;
+	margin-left: 10px;
+	font-weight: bold;
+}
+
+input {
+	min-height: 30px;
+	width: 30%;
+	margin: 10px;
+	padding-left: 10px;
+}
+
+button {
+	min-height: 30px;
+	width: 10%;
+	margin: 10px;
+	border: 0;
+	background-color: #555;
+	color: #FFF;
+}
+
+
+
+.pull-output {
+	padding: 5px;
+	margin: 5px;
+}
