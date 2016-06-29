@@ -1,6 +1,9 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic);
+
 body{
 	font-size: 14px;
 	font-weight: 300;
+	font-family: 'Ubuntu', sans-serif;
 }
 
 section.glb {
@@ -24,6 +27,9 @@ input {
 	width: 30%;
 	margin: 10px;
 	padding-left: 10px;
+	font-family: 'Ubuntu', sans-serif;
+	color: #BABABA;
+	font-size: 14px;
 }
 
 button {
@@ -33,6 +39,7 @@ button {
 	border: 0;
 	background-color: #555;
 	color: #FFF;
+	font-family: 'Ubuntu', sans-serif;
 }
 
 
@@ -40,4 +47,10 @@ button {
 .pull-output {
 	padding: 5px;
 	margin: 5px;
+}
+
+.info-config-page {
+	font-size: 16px;
+	font-weight: 300;
+	margin-top: 10px;
 }

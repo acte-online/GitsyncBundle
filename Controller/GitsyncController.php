@@ -14,7 +14,6 @@ use GitsyncBundle\Entity\Gitsync;
 class GitsyncController extends Controller
 {
 
-
     /**
      * @Route("/gitsync/config", name="gitsyncconfig")
      */
@@ -33,8 +32,6 @@ class GitsyncController extends Controller
         }
         else
         {
-            $docroot = $_SERVER['DOCUMENT_ROOT'];
-            echo $docroot;
             
             $form       = Request::createFromGlobals();
         
@@ -178,26 +175,31 @@ class GitsyncController extends Controller
         $GClone     = $CGitsync[0]->getChwgclone();
         // Path repository Clone
         $DIRClone   = $CGitsync[0]->getDirclone();
-        $PATClone   = "$DIRClone/$REPOName";
+        //$PATClone   = "$DIRClone/$REPOName";
+        $PATClone   = "$DIRClone/";
 
-
-        
+        // CLONE
         // User / Group
         $URepo     = $CGitsync[0]->getChwuclone();
         $GRepo     = $CGitsync[0]->getChwgclone();
+        
+        // REPOSITORY
         // Path repository ( git )
         $DIRRepo   = $CGitsync[0]->getDirrepo();
         $PATRepo   = "$DIRRepo/$REPOName";
 
 
         //EXEC SHELL
-
+        // chown repo.git ( src )
         exec("chown -R $URepo:$GRepo".$PATRepo);
+        // chown clone ( clone )
         exec("chown -R $UClone:$GClone".$PATClone);
 
         exec("cd $DIRClone && git pull 2>&1", $output);
 
+        // chown repo.git ( src )
         exec("chown -R $URepo:$GRepo".$PATRepo);
+        // chown clone ( clone )
         exec("chown -R $UClone:$GClone".$PATClone);
 
 
