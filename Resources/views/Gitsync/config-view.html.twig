@@ -15,11 +15,15 @@
 
 		<div>
 			<form action="{{ path('gitsyncconfigedit', {'id':CG.id})}}" method="POST">
-				<div><h2>Paramètre du clone</h2></div>
+				<div><h2>Nom du dépot</h2></div>
 				<div>
-					<label>Nom du repo ( repo.git )</label>
+					<label>Nom du dépot ( repo.git )</label>
 					<input type="text" name="reponame" placeholder="Nom du repo..." value="{{ CG.reponame }}" />
 				</div>
+
+				<br>
+
+				<div><h2>Paramètre du clone</h2></div>
 				<div>
 					<label>Chemin du clone</label>
 					<input type="text" name="dirclone" placeholder="Chemin du clone.." value="{{ CG.dirclone }}" />
@@ -37,15 +41,15 @@
 
 				<div><h2>Paramètre du dépot</h2></div>
 				<div>
-					<label>Chemin du clone</label>
+					<label>Chemin du dépot</label>
 					<input type="text" name="dirrepo" placeholder="Chemin du depot.." value="{{ CG.dirrepo }}" />
 				</div>
 				<div>
-					<label>User du clone</label>
+					<label>User du dépot</label>
 					<input type="text" name="chwurepo" placeholder="Nom user.." value="{{ CG.chwurepo }}" />
 				</div>
 				<div>
-					<label>Groupe du clone</label>
+					<label>Groupe du dépot</label>
 					<input type="text" name="chwgrepo" placeholder="Nom groupe.." value="{{ CG.chwgrepo }}" />
 				</div>
 
