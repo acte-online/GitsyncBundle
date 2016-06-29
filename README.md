@@ -1,0 +1,2 @@
+# GitsyncBundle
+symfony/gitpull
