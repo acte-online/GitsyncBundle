@@ -191,16 +191,16 @@ class GitsyncController extends Controller
 
         //EXEC SHELL
         // chown repo.git ( src )
-        exec("chown -R $URepo:$GRepo".$PATRepo);
+        //exec("chown -R $URepo:$GRepo".$PATRepo);
         // chown clone ( clone )
-        exec("chown -R $UClone:$GClone".$PATClone);
+        //exec("chown -R $UClone:$GClone".$PATClone);
 
         exec("cd $DIRClone && git pull 2>&1", $output);
 
         // chown repo.git ( src )
-        exec("chown -R $URepo:$GRepo".$PATRepo);
+        //exec("chown -R $URepo:$GRepo".$PATRepo);
         // chown clone ( clone )
-        exec("chown -R $UClone:$GClone".$PATClone);
+        //exec("chown -R $UClone:$GClone".$PATClone);
 
 
 		$outputs = $output;
