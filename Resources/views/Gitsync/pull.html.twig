@@ -8,17 +8,31 @@
 </head>
 <body>
 	<section class="glb">
+		<div class="title-img"></div>
 		<div class="title-page"><h1>Git Pull</h1></div>
+		<div class="title-bg"></div>
 
 		<br>
 
-		<h3>Résultat du pull</h3>
-		<div>
-		<ul>
-			{% for out in outputs %}
-			<li><div class="pull-output">{{ out }}</div></li>
-			{% endfor %}
-		</ul>
+		<div class="content">
+			<div class="ul-glb">
+				<div class="ul-title"><h2>Output pull</h2></div>
+				<ul>
+					{% for out in outputs %}
+						<li><div class="pull-output">{{ out }}</div></li>
+					{% endfor %}
+				</ul>
+
+				<br>
+
+				<div class="ul-title"><h2>Git status</h2></div>
+				<ul>
+					{% for stat in gitstatus %}
+						<li><div class="pull-output">{{ stat }}</div></li>
+					{% endfor %}
+
+				</ul>
+			</div>
 		</div>
 	</section>
 	

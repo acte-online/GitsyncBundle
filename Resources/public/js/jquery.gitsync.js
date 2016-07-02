@@ -1,3 +1,6 @@
-(function($){
-	//alert()
+$(function(){
+
+
 })
+
+

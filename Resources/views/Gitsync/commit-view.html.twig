@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Gitsync View commit</title>
+
+	<link rel="stylesheet" href="{{ asset('bundles/gitsync/css/gitsync.css') }}">
+</head>
+<body>
+	<section class="glb">
+		<div class="title-img"></div>
+		<div class="title-page"><h1>Gitsync View commit</h1></div>
+		<div class="title-bg"></div>
+
+		<br>
+
+		<div id="gitsyncgraph" class="content">
+
+			<h2>Git graph</h2>
+			<ul class="outer-list">
+				<li>&nbsp;
+					<ul class="inner-list">
+					{% for graph in outgraphs %}
+						<li><div class="li-graph">{{ graph }}</div></li>
+					{% endfor %}
+					</ul>
+				</li>
+
+			</ul>
+
+		</div>
+	</section>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<script src="{{ asset('bundles/gitsync/js/jquery.gitsync.js') }}"></script>
+
+</body>
+</html>

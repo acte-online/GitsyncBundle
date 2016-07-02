@@ -10,9 +10,65 @@ section.glb {
 	margin: 30px;
 }
 
+.title-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 150px;
+  background-color: #FFF;
+
+}
+
+.title-bg:before{
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 5px;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+  transform: rotate(-1deg);
+}
+
+.title-bg:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 5px;
+  right: 0;
+  width: 100%;
+  height: 120px;
+  box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+  transform: rotate(1deg);
+}
+
+.title-img {
+  background-image: url('/bundles/gitsync/images/git-icon.png');
+  background-size: 80px auto;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 30px;
+  left:10px;
+  width:90px;
+  height: 100px;
+  z-index: 999999;
+}
+
 .title-page {
+  position: absolute;
+  top: 10px;
+  left: 95px;
 	font-size: 28px;
 	font-weight: bold;
+  z-index: 999999;
+  color: #000;
+}
+
+.content {
+  position: relative;
+  margin-top: 160px;
 }
 
 label{
@@ -50,7 +106,119 @@ button {
 }
 
 .info-config-page {
-	font-size: 16px;
-	font-weight: 300;
-	margin-top: 10px;
+  position: absolute;
+  top: 105px;
+  left: 100px;
+  font-size: 14px;
+  font-weight: 300;
+  z-index: 999999;
+  color: #000;
+}
+
+
+.ul-custom {
+	list-style: none;
+}
+
+.ul-glb > ul {
+  margin-left: 10px;
+  list-style-image: url('/bundles/gitsync/images/mini-red-circle.png');
+  background-size: 10px;
+  background-repeat: no-repeat;
+}
+
+/*.ul-glb > ul li:lastchild {
+  list-style: none;
+}*/
+
+
+
+
+
+
+/*
+	GIT GRAPH
+*/
+
+#gitsyncgraph > ul {
+  margin-left: 10px;
+  list-style-image: url('/bundles/gitsync/images/red-circle.png');
+  z-index: 999999 !important;
+
+}
+
+.outer-list {
+  position: relative;
+}
+
+.outer-list:after {
+  position: absolute;
+  height: calc(100% - 45px);
+  width: 1px;
+  content: '';
+  display: block;
+  background-color: black;
+  left: 25px;
+  top: 20px;
+}
+
+#gitsyncgraph > ul li {
+  padding: 5px 0;
+}
+
+
+/*#gitsyncgraph > ul > li > ul > :first-child {
+    background: yellow;
+}*/
+
+.inner-list {
+  margin-left: 0;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  position: relative;
+}
+
+.inner-list:before {
+  position: absolute;
+  height: 40px;
+  width: 1px;
+  content: '';
+  display: block;
+  background-color: black;
+  transform: rotate(-45deg);
+  left: 4px;
+  bottom: 100%;
+  margin-bottom: -15px;
+}
+
+.inner-list:after {
+  position: absolute;
+  height: 40px;
+  width: 1px;
+  content: '';
+  display: block;
+  background-color: black;
+  transform: rotate(45deg);
+  left: 5px;
+  top: 100%;
+  margin-top: -15px;
+}
+
+.inner-list li {
+  position: relative;
+}
+
+.inner-list li:after {
+  position: absolute;
+  height: 15px;
+  width: 1px;
+  content: '';
+  display: block;
+  background-color: black;
+  left: -15px;
+  top: 20px;
+}
+
+.inner-list li:last-child:after {
+  display: none;
 }

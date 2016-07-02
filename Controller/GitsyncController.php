@@ -85,8 +85,6 @@ class GitsyncController extends Controller
             ));
         }
 
-        
-
         return $this->render('GitsyncBundle:Gitsync:config.html.twig', array(
             'CGitsync'  => $CGitsync,
             ));
@@ -163,25 +161,12 @@ class GitsyncController extends Controller
         $em         = $this->getDoctrine()->getManager();
         $CGitsync   = $em->getRepository('GitsyncBundle:Gitsync')->findall();
 
-        //dump($CGitsync[0]);
-        //die();
-
         // Repository name
         $REPOName   = $CGitsync[0]->getReponame();
 
-        
-        // User / Group
-        $UClone     = $CGitsync[0]->getChwuclone();
-        $GClone     = $CGitsync[0]->getChwgclone();
         // Path repository Clone
         $DIRClone   = $CGitsync[0]->getDirclone();
-        //$PATClone   = "$DIRClone/$REPOName";
         $PATClone   = "$DIRClone/";
-
-        // CLONE
-        // User / Group
-        $URepo     = $CGitsync[0]->getChwuclone();
-        $GRepo     = $CGitsync[0]->getChwgclone();
         
         // REPOSITORY
         // Path repository ( git )
@@ -190,23 +175,38 @@ class GitsyncController extends Controller
 
 
         //EXEC SHELL
-        // chown repo.git ( src )
-        //exec("chown -R $URepo:$GRepo".$PATRepo);
-        // chown clone ( clone )
-        //exec("chown -R $UClone:$GClone".$PATClone);
-
         exec("cd $DIRClone && git pull 2>&1", $output);
-
-        // chown repo.git ( src )
-        //exec("chown -R $URepo:$GRepo".$PATRepo);
-        // chown clone ( clone )
-        //exec("chown -R $UClone:$GClone".$PATClone);
-
+        exec("cd $DIRClone && git status", $gitstatus);
 
 		$outputs = $output;
 
         return $this->render('GitsyncBundle:Gitsync:pull.html.twig', array(
-        	'outputs'	=> $outputs,
+        	'outputs'      => $outputs,
+            'gitstatus'    => $gitstatus,
         	));
+    }
+
+
+    /**
+     * @Route("/gitsync/commit/view", name="gitsynccommitview")
+     */
+    public function commitviewAction()
+    {
+
+        $em         = $this->getDoctrine()->getManager();
+        $CGitsync   = $em->getRepository('GitsyncBundle:Gitsync')->findall();
+
+        // Path repository Clone
+        $DIRClone   = $CGitsync[0]->getDirclone();
+        $PATClone   = "$DIRClone/";
+
+        exec("cd $DIRClone && git status", $gitstatus);
+        exec("cd $DIRClone && git log --graph", $outgraphs);
+
+        return $this->render('GitsyncBundle:Gitsync:commit-view.html.twig', array(
+            'gitstatus'    => $gitstatus,
+            'outgraphs'    => $outgraphs,
+            ));
+
     }
 }
